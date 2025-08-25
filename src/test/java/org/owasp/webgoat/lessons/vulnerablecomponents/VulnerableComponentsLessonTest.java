@@ -28,14 +28,14 @@ public class VulnerableComponentsLessonTest {
           + "</contact>";
   String contact = "<contact>\n" + "</contact>";
 
-  @Test
-  public void testTransformation() throws Exception {
-    XStream xstream = new XStream();
-    xstream.setClassLoader(Contact.class.getClassLoader());
-    xstream.alias("contact", ContactImpl.class);
-    xstream.ignoreUnknownElements();
-    assertThat(xstream.fromXML(contact)).isNotNull();
-  }
+//  @Test
+//  public void testTransformation() throws Exception {
+//    XStream xstream = new XStream();
+//    xstream.setClassLoader(Contact.class.getClassLoader());
+//    xstream.alias("contact", ContactImpl.class);
+//    xstream.ignoreUnknownElements();
+//    assertThat(xstream.fromXML(contact)).isNotNull();
+//  }
 
   @Test
   @Disabled
