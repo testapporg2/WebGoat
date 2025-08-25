@@ -30,8 +30,8 @@ jobs:
           polaris_assessment_types: SAST,SCA
           polaris_waitForScan: true
           mark_build_status: failure
-          include_diagnostics: false
+          include_diagnostics: true
           polaris_prComment_enabled: true
-          polaris_reports_sarif_create: false
-          polaris_upload_sarif_report: false
           github_token: ${{ secrets.GH_TOKEN }}
+          polaris_reports_sarif_create: true
+          polaris_upload_sarif_report: true
