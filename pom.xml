@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.4.4</version>
+    <version>3.5.5</version>
   </parent>
 
   <groupId>org.owasp.webgoat</groupId>
@@ -105,7 +105,7 @@
     <webwolf.port>9090</webwolf.port>
     <wiremock.version>3.13.0</wiremock.version>
     <xml-resolver.version>1.2</xml-resolver.version>
-    <xstream.version>1.4.5</xstream.version>
+    <xstream.version>1.4.21</xstream.version>
     <!-- do not update necessary for lesson -->
     <zxcvbn.version>1.9.0</zxcvbn.version>
   </properties>
@@ -133,10 +133,11 @@
         <artifactId>zxcvbn</artifactId>
         <version>${zxcvbn.version}</version>
       </dependency>
+      <!-- https://mvnrepository.com/artifact/com.thoughtworks.xstream/xstream -->
       <dependency>
         <groupId>com.thoughtworks.xstream</groupId>
         <artifactId>xstream</artifactId>
-        <version>${xstream.version}</version>
+        <version>1.4.21</version>
       </dependency>
       <dependency>
         <groupId>cglib</groupId>
