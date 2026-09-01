@@ -20,6 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
+import org.springframework.core.env.Environment;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.owasp.webgoat.container.assignments.AssignmentEndpoint;
 import org.owasp.webgoat.container.assignments.AssignmentHints;
@@ -42,9 +43,18 @@ import org.springframework.web.bind.annotation.RestController;
 })
 public class JWTRefreshEndpoint implements AssignmentEndpoint {
 
-  public static final String PASSWORD = "bm5nhSkxCXZkKRy4";
-  private static final String JWT_PASSWORD = "bm5n3SkxCX4kKRy4";
+  public static final String PASSWORD = getRequiredEnv("JWT_REFRESH_PASSWORD");
+  private static final String JWT_PASSWORD = getRequiredEnv("JWT_SIGNING_KEY");
   private static final List<String> validRefreshTokens = new ArrayList<>();
+
+  private static String getRequiredEnv(String name) {
+    String value = System.getenv(name);
+    if (value == null || value.isBlank()) {
+      throw new IllegalStateException(
+          String.format("Required environment variable '%s' is not set or is blank", name));
+    }
+    return value;
+  }
 
   @PostMapping(
       value = "/JWT/refresh/login",
